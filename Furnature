@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Vanessa Martinez | Timeless Furniture Brochure</title>
+  <!-- Google Fonts + subtle reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #F6F2EA;  /* warm paper background */
+      font-family: 'Inter', sans-serif;
+      color: #2C2B28;
+      scroll-behavior: smooth;
+    }
+
+    /* brochure wrapper */
+    .brochure-container {
+      max-width: 1400px;
+      margin: 40px auto;
+      background: #FEFCF8;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2);
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    /* HEADER / COVER SECTION (like a brochure cover) */
+    .cover {
+      background: #F2ECE2;
+      padding: 60px 48px 48px 48px;
+      text-align: center;
+      border-bottom: 2px solid #E0D6C8;
+    }
+
+    .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #4A3B2C;
+      margin-bottom: 12px;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #977B5C;
+      border-top: 1px solid #DFD3C3;
+      display: inline-block;
+      padding-top: 12px;
+    }
+
+    .cover-desc {
+      max-width: 600px;
+      margin: 28px auto 0;
+      color: #5E4F3C;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    /* navigation (minimal, like brochure tabs) */
+    .nav-brochure {
+      background: #FFFCF7;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      border-bottom: 1px solid #E9E0D4;
+      flex-wrap: wrap;
+    }
+
+    .nav-brochure a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #5A4A36;
+      font-size: 0.9rem;
+      transition: 0.2s;
+      letter-spacing: 0.3px;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 6px;
+    }
+
+    .nav-brochure a:hover {
+      border-bottom-color: #B7976E;
+      color: #2F241B;
+    }
+
+    /* section titles */
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 500;
+      color: #3A2C1F;
+      margin-bottom: 16px;
+      letter-spacing: -0.2px;
+    }
+
+    .section-sub {
+      color: #807560;
+      font-size: 1rem;
+      margin-bottom: 40px;
+      border-left: 3px solid #DBC9B2;
+      padding-left: 18px;
+      font-style: italic;
+    }
+
+    /* main content */
+    .content-padding {
+      padding: 48px 44px;
+    }
+
+    /* furniture grid (brochure style: all items visible, clean cards) */
+    .furniture-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 36px 28px;
+      margin: 32px 0 20px;
+    }
+
+    .item-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+      border: 1px solid #F0E6DA;
+    }
+
+    .item-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -12px rgba(60, 40, 20, 0.12);
+      border-color: #E1D0BC;
+    }
+
+    .item-image {
+      background-color: #EADFCB;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      background-size: cover;
+      background-position: center;
+      transition: all 0.2s;
+      color: #5E4A32;
+    }
+
+    /* different placeholder images with emoji + pattern (to represent each piece) */
+    .item-info {
+      padding: 22px 20px 24px;
+    }
+
+    .item-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem;
+      font-weight: 600;
+      color: #3E2D1E;
+      margin-bottom: 8px;
+    }
+
+    .item-material {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #AF9276;
+      margin-bottom: 10px;
+    }
+
+    .item-description {
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: #5C5348;
+      margin-bottom: 18px;
+    }
+
+    .item-feature {
+      display: flex;
+      gap: 12px;
+      font-size: 0.7rem;
+      color: #7D6B56;
+      border-top: 1px solid #F1E9DF;
+      padding-top: 14px;
+      margin-top: 6px;
+    }
+
+    .badge {
+      background: #F8F2EA;
+      padding: 4px 11px;
+      border-radius: 40px;
+      font-weight: 500;
+    }
+
+    /* special collections row */
+    .highlight-row {
+      background: #F9F5EE;
+      border-radius: 32px;
+      padding: 28px 32px;
+      margin: 48px 0 24px;
+      text-align: center;
+    }
+
+    .highlight-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    .highlight-card {
+      background: white;
+      border-radius: 24px;
+      padding: 16px 20px;
+      flex: 1 1 200px;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.03);
+      border: 1px solid #E8DCCE;
+    }
+
+    /* CTA / contact */
+    .contact-section {
+      background: #E7DFD1;
+      margin: 30px 0 20px;
+      border-radius: 32px;
+      padding: 44px 40px;
+      text-align: center;
+    }
+
+    .btn-inquire {
+      background: #7C5F42;
+      color: white;
+      border: none;
+      padding: 14px 38px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: 'Inter', sans-serif;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+    .btn-inquire:hover {
+      background: #5C4632;
+      transform: scale(0.97);
+    }
+
+    /* footer like brochure back cover */
+    .footer-brochure {
+      background: #2C241C;
+      color: #D9CDBC;
+      padding: 38px 44px 28px;
+      font-size: 0.8rem;
+      border-top: 1px solid #4C3D2E;
+    }
+
+    .footer-flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    /* responsive */
+    @media (max-width: 780px) {
+      .content-padding {
+        padding: 32px 20px;
+      }
+      .cover {
+        padding: 40px 24px;
+      }
+      .brand {
+        font-size: 2.8rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .nav-brochure {
+        gap: 20px;
+      }
+    }
+
+    /* utility */
+    .text-center { text-align: center; }
+    .mt-2 { margin-top: 12px; }
+  </style>
+</head>
+<body>
+<div class="brochure-container">
+  
+  <!-- COVER: brochure style -->
+  <div class="cover">
+    <div class="brand">Vanessa Martinez</div>
+    <div class="tagline">✦ handcrafted furniture | timeless expression ✦</div>
+    <p class="cover-desc">Solid wood · heirloom quality · made for generations. Each piece is a marriage of modern silhouette and traditional joinery. Discover our complete collection below — a curated brochure of every design.</p>
+  </div>
+
+  <!-- navigation anchor -->
+  <div class="nav-brochure">
+    <a href="#allpieces">All pieces</a>
+    <a href="#living">Living room</a>
+    <a href="#dining">Dining & kitchen</a>
+    <a href="#bedroom">Bedroom</a>
+    <a href="#contact">Request catalogue</a>
+  </div>
+
+  <!-- MAIN CONTENT: all furniture items shown (brochure style) -->
+  <div class="content-padding" id="allpieces">
+    <h2 class="section-title">The complete collection</h2>
+    <div class="section-sub">Every piece, from sculptural chairs to expansive tables, crafted with natural oil finishes and premium hardwoods.</div>
+    
+    <!-- ---- ALL FURNITURE ITEMS (brochure grid, no prices, focused on materials & story) ---- -->
+    <div class="furniture-grid">
+      
+      <!-- Item 1 : Elm Dining Table -->
+      <div class="item-card">
+        <div class="item-image" style="background: #E2D5C2;">🪵 ⟷ 🪑</div>
+        <div class="item-info">
+          <h3>Valley Elm Dining Table</h3>
+          <div class="item-material">solid reclaimed elm · natural oil</div>
+          <div class="item-description">Generous live-edge table, seats 8-10. Each slab is one-of-a-kind with rich grain character.</div>
+          <div class="item-feature"><span class="badge">✧ handmade</span><span class="badge">🪑 10 seats</span><span class="badge">🌿 no-VOC finish</span></div>
+        </div>
+      </div>
+      
+      <!-- Item 2 : Cloud Lounge Chair -->
+      <div class="item-card">
+        <div class="item-image" style="background: #EBDDCB;">🪑 ☁️</div>
+        <div class="item-info">
+          <h3>Cloud Lounge Chair</h3>
+          <div class="item-material">walnut frame + wool upholstery</div>
+          <div class="item-description">Deep seat, ergonomic curve, hand-tufted back. Modern yet enveloping.</div>
+          <div class="item-feature"><span class="badge">✧ certified wool</span><span class="badge">♻️ FSC wood</span></div>
+        </div>
+      </div>
+      
+      <!-- Item 3 : Mesa Coffee Table -->
+      <div class="item-card">
+        <div class="item-image" style="background: #DDD0BC;">🗻 ⟷ 🪵</div>
+        <div class="item-info">
+          <h3>Mesa Coffee Table</h3>
+          <div class="item-material">white oak · sculpted base</div>
+          <div class="item-description">Organic silhouette, lower shelf for storage. Minimalist yet warm.</div>
+          <div class="item-feature"><span class="badge">✧ hand-carved</span><span class="badge">📚 hidden storage</span></div>
+        </div>
+      </div>
+      
+      <!-- Item 4 : Arch Bookshelf -->
+      <div class="item-card">
+        <div class="item-image" style="background: #DACEB9;">📚 🪵</div>
+        <div class="item-info">
+          <h3>Archway Bookshelf</h3>
+          <div class="item-material">black walnut & steel</div>
+          <div class="item-description">Curved top, 5 adjustable shelves. Architectural statement for any room.</div>
+          <div class="item-feature"><span class="badge">✧ heirloom joinery</span><span class="badge">⚙️ adjustable</span></div>
+        </div>
+      </div>
+      
+      <!-- Item 5 : Spindle Bed Frame -->
+      <div class="item-card">
+        <div class="item-image" style="background: #E3D5C2;">🛏️ ⟷ 🌾</div>
+        <div class="item-info">
+          <h3>Spindle Bed Frame (Queen/King)</h3>
+          <div class="item-material">solid ash + hand-turned spindles</div>
+          <div class="item-description">Inspired by Shaker design, slatted headboard, no box spring needed.</div>
+          <div class="item-feature"><span class="badge">✧ zero creak</span><span class="badge">🌲 FSC certified</span></div>
+        </div>
+      </div>
+      
+      <!-- Item 6 : Oak Media Console -->
+      <div class="item-card">
+        <div class="item-image" style="background: #E2D3BD;">📺 🪵</div>
+        <div class="item-info">
+          <h3>Mid-Century Media Console</h3>
+          <div class="item-material">american oak · hairpin legs</div>
+          <div class="item-description">Sliding doors, cable management, spacious compartments.</div>
+          <div class="item-feature"><span class="badge">✧ soft-close</span><span class="badge">♻️ recycled steel legs</span></div>
+        </div>
+      </div>
+      
+      <!-- Item 7 : Round Pedestal Table -->
+      <div class="item-card">
+        <div class="item-image" style="background: #DDCDB5;">🍽️ ⟷ 🌀</div>
+        <div class="item-info">
+          <h3>Gather Round Table</h3>
+          <div class="item-material">curly maple + cast iron base</div>
+          <div class="item-description">48" diameter, expands to 62". Perfect for gatherings.</div>
+          <div class="item-feature"><span class="badge">✧ butterfly leaf</span><span class="badge">🔨 artisan-made</span></div>
+        </div>
+      </div>
+      
+      <!-- Item 8 : Woven Bench -->
+      <div class="item-card">
+        <div class="item-image" style="background: #EDE0CF;">🪑 ➰</div>
+        <div class="item-info">
+          <h3>Woven Rattan Bench</h3>
+          <div class="item-material">solid teak + handwoven rattan</div>
+          <div class="item-description">Organic texture, ideal for entryway or foot of bed. Airy and durable.</div>
+          <div class="item-feature"><span class="badge">✧ natural fiber</span><span class="badge">🌱 sustainably harvested</span></div>
+        </div>
+      </div>
+      
+      <!-- Item 9 : Sculptural Stool -->
+      <div class="item-card">
+        <div class="item-image" style="background: #E9DECE;">🗿 🪑</div>
+        <div class="item-info">
+          <h3>Pebble Stool / Side Table</h3>
+          <div class="item-material">carved oak + oiled finish</div>
+          <div class="item-description">Multipurpose organic shape, like a river stone.</div>
+          <div class="item-feature"><span class="badge">✧ 2-in-1</span><span class="badge">🎨 handmade</span></div>
+        </div>
+      </div>
+      
+      <!-- Item 10 : Glass-front Cabinet -->
+      <div class="item-card">
+        <div class="item-image" style="background: #DECFBA;">🚪 ✨</div>
+        <div class="item-info">
+          <h3>Heritage Curio Cabinet</h3>
+          <div class="item-material">cherry wood + glass panels</div>
+          <div class="item-description">Display collectibles, adjustable interior lighting ready.</div>
+          <div class="item-feature"><span class="badge">✧ brass hardware</span><span class="badge">🔒 soft-close hinges</span></div>
+        </div>
+      </div>
+
+      <!-- Item 11 : Platform Bed (low) -->
+      <div class="item-card">
+        <div class="item-image" style="background: #E5D8C6;">🛌 🌙</div>
+        <div class="item-info">
+          <h3>Zen Platform Bed</h3>
+          <div class="item-material">walnut & bamboo slats</div>
+          <div class="item-description">Low-profile, space-saving with integrated nightstand ledge.</div>
+          <div class="item-feature"><span class="badge">✧ tool-free assembly</span><span class="badge">♻️ recycled packaging</span></div>
+        </div>
+      </div>
+
+      <!-- Item 12 : Ladder Desk -->
+      <div class="item-card">
+        <div class="item-image" style="background: #E1D2BC;">✍️ 📖</div>
+        <div class="item-info">
+          <h3>Leaning Ladder Desk</h3>
+          <div class="item-material">solid pine + iron accents</div>
+          <div class="item-description">Wall-mounted, fold-down surface with storage shelf. ideal for small spaces.</div>
+          <div class="item-feature"><span class="badge">✧ space-saving</span><span class="badge">🪵 rustic modern</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- secondary category anchors -->
+    <div id="living" style="scroll-margin-top: 30px;"></div>
+    <div class="highlight-row" style="margin-top: 20px;">
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem;">✨ Living room highlights</h3>
+      <div class="highlight-grid">
+        <div class="highlight-card">Cloud Lounge Chair<br><span style="font-size:0.7rem;">walnut + wool</span></div>
+        <div class="highlight-card">Mesa Coffee Table<br><span style="font-size:0.7rem;">white oak</span></div>
+        <div class="highlight-card">Archway Bookshelf<br><span style="font-size:0.7rem;">walnut/steel</span></div>
+        <div class="highlight-card">Woven Rattan Bench<br><span style="font-size:0.7rem;">teak/rattan</span></div>
+      </div>
+    </div>
+
+    <div id="dining" style="scroll-margin-top: 30px;"></div>
+    <div class="highlight-row">
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem;">🍽️ Dining & kitchen collection</h3>
+      <div class="highlight-grid">
+        <div class="highlight-card">Valley Elm Table<br><span style="font-size:0.7rem;">seats 8-10</span></div>
+        <div class="highlight-card">Gather Round Table<br><span style="font-size:0.7rem;">expandable maple</span></div>
+        <div class="highlight-card">Pebble Stool<br><span style="font-size:0.7rem;">carved oak</span></div>
+        <div class="highlight-card">Heritage Curio Cabinet<br><span style="font-size:0.7rem;">cherry/glass</span></div>
+      </div>
+    </div>
+
+    <div id="bedroom" style="scroll-margin-top: 30px;"></div>
+    <div class="highlight-row">
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem;">🛌 bedroom sanctuaries</h3>
+      <div class="highlight-grid">
+        <div class="highlight-card">Spindle Bed Frame<br><span style="font-size:0.7rem;">ash wood</span></div>
+        <div class="highlight-card">Zen Platform Bed<br><span style="font-size:0.7rem;">walnut/bamboo</span></div>
+        <div class="highlight-card">Woven Bench<br><span style="font-size:0.7rem;">rattan storage</span></div>
+      </div>
+    </div>
+
+    <!-- CTA brochure request / contact (no price, just inquiries) -->
+    <div id="contact" class="contact-section" style="scroll-margin-top: 30px;">
+      <h3 style="font-size: 1.9rem; font-family: 'Cormorant Garamond', serif;">Request our printed brochure</h3>
+      <p style="max-width: 550px; margin: 16px auto; color: #3E3529;">Receive a full material swatch kit, dimensions catalog, and artisan story. We deliver worldwide.</p>
+      <button class="btn-inquire" id="brochureRequestBtn">📮 Request free catalogue →</button>
+      <p class="mt-2" style="font-size: 0.7rem;">or visit our showroom by appointment — we’d love to welcome you.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER as brochure back panel -->
+  <div class="footer-brochure">
+    <div class="footer-flex">
+      <div><strong style="font-size:1rem;">Vanessa Martinez</strong><br>Handcrafted furniture studio<br>est. 2013 · Portland, ME</div>
+      <div>✉️ vanessamartinez@gmail.com<br>📞 +1 (800) 843-9265<br>📍 Antipolo City</div>
+      <div>📖 Bespoke commissions<br>🌲 Carbon-neutral woodshop<br>📐 Heirloom guarantee</div>
+    </div>
+    <div class="text-center" style="margin-top: 36px; border-top: 1px solid #4F3F2F; padding-top: 24px;">
+      © 2025 Vanessa Martinez — every piece tells a story. All designs original. Printed on recycled paper.
+    </div>
+  </div>
+</div>
+
+<script>
+  // interactive "request brochure" with modal / toast (brochure style, no prices)
+  const requestBtn = document.getElementById('brochureRequestBtn');
+  if (requestBtn) {
+    requestBtn.addEventListener('click', () => {
+      // create a nice modal that simulates request
+      const modalOverlay = document.createElement('div');
+      modalOverlay.style.position = 'fixed';
+      modalOverlay.style.top = '0';
+      modalOverlay.style.left = '0';
+      modalOverlay.style.width = '100%';
+      modalOverlay.style.height = '100%';
+      modalOverlay.style.backgroundColor = 'rgba(40, 30, 20, 0.8)';
+      modalOverlay.style.backdropFilter = 'blur(5px)';
+      modalOverlay.style.display = 'flex';
+      modalOverlay.style.alignItems = 'center';
+      modalOverlay.style.justifyContent = 'center';
+      modalOverlay.style.zIndex = '10000';
+      modalOverlay.style.fontFamily = "'Inter', sans-serif";
+
+      const modalCard = document.createElement('div');
+      modalCard.style.background = '#FFFCF5';
+      modalCard.style.maxWidth = '420px';
+      modalCard.style.width = '85%';
+      modalCard.style.borderRadius = '36px';
+      modalCard.style.padding = '32px 28px';
+      modalCard.style.boxShadow = '0 30px 40px rgba(0,0,0,0.3)';
+      modalCard.style.textAlign = 'center';
+      modalCard.innerHTML = `
+        <span style="font-size: 2.8rem;">📖🍃</span>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; margin: 12px 0 4px;">Free brochure & sample</h3>
+        <p style="margin: 12px 0 16px; color: #4b3b2a;">Enter your details to receive our full collection lookbook + wood swatches.</p>
+        <input type="text" id="modalName" placeholder="Your name" style="width:100%; padding: 12px; border-radius: 60px; border:1px solid #E1D3C2; margin-bottom: 12px; background: white;">
+        <input type="email" id="modalEmail" placeholder="Email address" style="width:100%; padding: 12px; border-radius: 60px; border:1px solid #E1D3C2; margin-bottom: 20px;">
+        <button id="sendRequestBtn" style="background: #7C5F42; color:white; border:none; padding: 12px 0; width:100%; border-radius: 60px; font-weight:600; cursor:pointer;">Send me the brochure →</button>
+        <button id="closeModalBtn" style="background:transparent; border:none; margin-top: 18px; font-size:0.75rem; cursor:pointer; color:#927C60;">Close</button>
+      `;
+      modalOverlay.appendChild(modalCard);
+      document.body.appendChild(modalOverlay);
+
+      const closeModal = () => modalOverlay.remove();
+      document.getElementById('closeModalBtn')?.addEventListener('click', closeModal);
+      document.getElementById('sendRequestBtn')?.addEventListener('click', () => {
+        const nameInput = document.getElementById('modalName');
+        const emailInput = document.getElementById('modalEmail');
+        const name = nameInput?.value.trim() || 'friend';
+        const email = emailInput?.value.trim();
+        if (email && email.includes('@') && email.includes('.')) {
+          alert(`✨ Thank you ${name}! Your Vanessa Martinez brochure will be sent to ${email} within 2 days. We plant a tree for every request. 🌳`);
+          closeModal();
+        } else {
+          alert('🌿 Please provide a valid email so we can send the beautiful furniture catalogue.');
+        }
+      });
+      modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
+    });
+  }
+
+  // smooth scroll for anchor links
+  document.querySelectorAll('.nav-brochure a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href && href !== '#') {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+
+  // small hover effect for cards
+  const cards = document.querySelectorAll('.item-card');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'all 0.2s';
+    });
+  });
+
+  // also console welcome
+  console.log('Vanessa Martinez brochure — complete collection displayed, no prices, all items visible.');
+</script>
+</body>
+</html>
